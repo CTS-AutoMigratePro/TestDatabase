@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[RetrieveProducts]
+CREATE PROCEDURE [dbo].[spInsertDepartment]
     @MinPrice DECIMAL(10,2),
     @MaxPrice DECIMAL(10,2)
 AS
