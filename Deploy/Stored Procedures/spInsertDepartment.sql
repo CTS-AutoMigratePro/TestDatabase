@@ -8,4 +8,6 @@ BEGIN
     SELECT ProductId, Name, Category, Price, StockQuantity
     FROM Products
     WHERE Price BETWEEN @MinPrice AND @MaxPrice AND StockQuantity > 0;
+
+    Execute dbo.SaveEmplyeeWork
 END;
