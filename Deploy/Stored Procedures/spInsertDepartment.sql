@@ -1,6 +1,10 @@
 CREATE PROCEDURE [dbo].[spInsertDepartment]
     @MinPrice DECIMAL(10,2),
-    @MaxPrice DECIMAL(10,2)
+    @MaxPrice DECIMAL(10,2),
+    @EmployeeId INT,
+    @WorkDate DATETIME,
+    @WorkDescription VARCHAR(255),
+    @HoursWorked DECIMAL(5,2)
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -9,5 +13,6 @@ BEGIN
     FROM Products
     WHERE Price BETWEEN @MinPrice AND @MaxPrice AND StockQuantity > 0;
 
-    Execute dbo.SaveEmplyeeWork
+    -- Call SaveEmployeeWork procedure
+    EXEC dbo.SaveEmployeeWork @EmployeeId, @WorkDate, @WorkDescription, @HoursWorked;
 END;
